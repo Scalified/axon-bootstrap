@@ -1,0 +1,30 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.com.scalified.plugins.gradle:metamodel:0.0.1"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'com.scalified.plugins.gradle.metamodel'
+apply plugin: 'war'
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:$LOMBOK_VERSION"
+    compileOnly "javax:javaee-api:$JAVAEE_API_VERSION"
+    compileOnly "org.slf4j:slf4j-api:$SLF4J_VERSION"
+    compile "org.axonframework:axon-core:$AXON_VERSION"
+    compileOnly "org.jboss.resteasy:resteasy-client:$RESTEASY_VERSION"
+    compileOnly "com.fasterxml.jackson.core:jackson-databind:$JACKSON_VERSION"
+    compile "org.hibernate:hibernate-java8:$HIBERNATE_VERSION"
+    compile "org.hibernate:hibernate-envers:$HIBERNATE_VERSION"
+
+    compile 'commons-io:commons-io:2.5'
+    compile 'org.apache.commons:commons-lang3:3.7'
+    compile 'com.scalified:jaxrs:0.0.4'
+    compile 'com.scalified:jpa:0.0.5'
+}
+
+metamodel {
+    hibernateVersion = '5.3.4.Final'
+}
