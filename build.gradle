@@ -1,0 +1,22 @@
+import java.nio.charset.StandardCharsets
+
+ext {
+    LOMBOK_VERSION = '1.16.20'
+    JAVAEE_API_VERSION = '7.0'
+    SLF4J_VERSION = '1.7.25'
+    JACKSON_VERSION = '2.9.5'
+    HIBERNATE_VERSION = '5.0.12.Final-redhat-1'
+    AXON_VERSION = '3.3.5'
+    RESTEASY_VERSION = '3.1.0.Final'
+
+}
+
+allprojects {
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        options.encoding = StandardCharsets.UTF_8.name()
+    }
+
+}
